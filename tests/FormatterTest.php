@@ -269,7 +269,7 @@ class FormatterTest extends PHPUnit_Framework_TestCase
           'foo' => '123.12a',
         ];
         $rules = [
-          'foo' => ['int'],
+          'foo' => ['integer'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
