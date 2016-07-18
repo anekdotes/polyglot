@@ -63,7 +63,7 @@ class Formatter
             $new = str_replace(' ', '', $value);
             $new = substr($value, 0, 3);
             if(strlen($value) > 3) {
-              $new .= ' '.substr($value, 3, 3);
+                $new .= ' '.substr($value, 3, 3);
             }
             $new = Str::upper($new);
         }
