@@ -48,7 +48,7 @@ class FormatterTest extends PHPUnit_Framework_TestCase
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => ''
+          'foo' => '',
         ]);
     }
 

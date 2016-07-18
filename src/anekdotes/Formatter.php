@@ -20,10 +20,10 @@ class Formatter
      */
     public static function make($items, $rules)
     {
-        if (!is_array($items) || !is_array($rules)){
+        if (!is_array($items) || !is_array($rules)) {
             return false;
         }
-        if (empty($items) || empty($rules)){
+        if (empty($items) || empty($rules)) {
             return false;
         }
 
@@ -62,7 +62,7 @@ class Formatter
         if (strlen($value) > 0) {
             $new = str_replace(' ', '', $value);
             $new = substr($value, 0, 3);
-            if(strlen($value) > 3){
+            if(strlen($value) > 3) {
               $new .= ' '.substr($value, 3, 3);
             }
             $new = Str::upper($new);
