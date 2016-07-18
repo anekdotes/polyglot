@@ -1,5 +1,5 @@
 {
-  "name": "anekdotes/formater",
+  "name": "anekdotes/formatter",
   "type": "library",
   "description": "Utility to format whole Input using provided rules",
   "keywords": [

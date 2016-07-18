@@ -1,13 +1,13 @@
 <?php
 
-namespace Anekdotes\Formater;
+namespace Anekdotes\Formatter;
 
 use Anekdotes\Support\Str;
 
 /**
  * Formater class, format whole Input using provided rules
  */
-class Formater
+class Formatter
 {
 
     /**
