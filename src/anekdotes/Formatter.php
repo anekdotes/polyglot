@@ -12,6 +12,7 @@ class Formatter
 
     /**
      * Provided Input. Uses a key->value format.
+     *
      * @var string[]
      */
     private $items;
@@ -25,10 +26,10 @@ class Formatter
     /**
      * Generates an instance of a Formater, using the provided items and rules.
      *
-     * @param  string[] $items Provided Input, contains key->values pair to be formatted
-     * @param  array[] $rules Formatting Rules to be used. The key represents the key of the Input to format. The value associated to said key is a list of strings representing which rules to use to format the input's value.
+     * @param string[] $items Provided Input, contains key->values pair to be formatted
+     * @param array[] $rules Formatting Rules to be used. The key represents the key of the Input to format. The value associated to said key is a list of strings representing which rules to use to format the input's value.
      *
-     * @return Formater        Generated Formated instance
+     * @return Formater Generated Formated instance
      */
     public static function make($items, $rules)
     {
@@ -72,15 +73,15 @@ class Formatter
     /**
      * Format the postal code value into the following format : J4R 2L6.
      *
-     * @param  string $value The input string to format
+     * @param string $value The input string to format
      *
-     * @return string        The formatted value
+     * @return string The formatted value
      */
     public static function postalCode($value)
     {
         if (strlen($value) > 0) {
             $value = str_replace(' ', '', $value);
-            $value = substr($value, 0, 3) . ' ' . substr($value, 3, 3);
+            $value = substr($value, 0, 3).' '.substr($value, 3, 3);
             $value = Str::upper($value);
         }
 
@@ -90,22 +91,22 @@ class Formatter
     /**
      * Format the phone number value into the following format : (450) 748-2822.
      *
-     * @param  string $value The input string to format
+     * @param string $value The input string to format
      *
-     * @return string        The formatted value
+     * @return string The formatted value
      */
     public static function phoneNumber($value)
     {
         if (strlen($value) > 1) {
             $value = preg_replace("/[^\d]+/", '', $value);
             if (strlen($value) === 12) {
-                $value = substr($value, 0, 3)." (".substr($value, 3, 3).") ".substr($value, 6, 3)."-".substr($value, 9, 3);
+                $value = substr($value, 0, 3).' ('.substr($value, 3, 3).') '.substr($value, 6, 3).'-'.substr($value, 9, 3);
             } else if (strlen($value) === 11) {
-                $value = substr($value, 0, 1)." (".substr($value, 1, 3).") ".substr($value, 4, 3)."-".substr($value, 7, 4);
+                $value = substr($value, 0, 1).' ('.substr($value, 1, 3).') '.substr($value, 4, 3).'-'.substr($value, 7, 4);
             } else if (strlen($value) === 10) {
-                $value = "(".substr($value, 0, 3).") ".substr($value, 3, 3)."-".substr($value, 6, 4);
+                $value = '('.substr($value, 0, 3).') '.substr($value, 3, 3).'-'.substr($value, 6, 4);
             } else if (strlen($value) === 7) {
-                $value = substr($value, 0, 3)."-".substr($value, 3, 4);
+                $value = substr($value, 0, 3).'-'.substr($value, 3, 4);
             }
         }
 
@@ -115,9 +116,9 @@ class Formatter
     /**
      * Format the value into a floating point number : "122.2ABD" -> 122.2.
      *
-     * @param   string $value The input string to format
+     * @param string $value The input string to format
      *
-     * @return  string        The formatted value
+     * @return string The formatted value
      */
     public static function float($value)
     {
@@ -127,9 +128,9 @@ class Formatter
     /**
      * Format the value into an integer : "122.2ABD" -> 122.
      *
-     * @param   string $value The input string to format
+     * @param string $value The input string to format
      *
-     * @return  string        The formatted value
+     * @return string The formatted value
      */
     public static function int($value)
     {
@@ -139,9 +140,9 @@ class Formatter
     /**
      * Format the value into an integer : "122.2ABD" -> 122.
      *
-     * @param   string $value The input string to format
+     * @param string $value The input string to format
      *
-     * @return  string        The formatted value
+     * @return string The formatted value
      */
     public static function integer($value)
     {
@@ -153,9 +154,9 @@ class Formatter
      *
      * @todo Format the actual string depending on the received object.
      *
-     * @param   string $value The input string to format
+     * @param string $value The input string to format
      *
-     * @return  string        The formatted value
+     * @return string The formatted value
      */
     public static function datetime($value)
     {
