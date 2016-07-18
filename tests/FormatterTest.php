@@ -41,10 +41,10 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatPhone1()
     {
         $values = [
-          'foo' => 'bar'
+          'foo' => 'bar',
         ];
         $rules = [
-          'foo' => ['phoneNumber']
+          'foo' => ['phoneNumber'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
@@ -56,14 +56,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatPhone2()
     {
         $values = [
-          'foo' => '450'
+          'foo' => '450',
         ];
         $rules = [
-          'foo' => ['phoneNumber']
+          'foo' => ['phoneNumber'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => '450'
+          'foo' => '450',
         ]);
     }
 
@@ -71,14 +71,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatPhone3()
     {
         $values = [
-          'foo' => '4504441'
+          'foo' => '4504441',
         ];
         $rules = [
-          'foo' => ['phoneNumber']
+          'foo' => ['phoneNumber'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => '450-4441'
+          'foo' => '450-4441',
         ]);
     }
 
@@ -86,14 +86,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatPhone4()
     {
         $values = [
-          'foo' => '4504441919'
+          'foo' => '4504441919',
         ];
         $rules = [
-          'foo' => ['phoneNumber']
+          'foo' => ['phoneNumber'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => '(450) 444-1919'
+          'foo' => '(450) 444-1919',
         ]);
     }
 
@@ -101,14 +101,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatPhone5()
     {
         $values = [
-          'foo' => '14504441919'
+          'foo' => '14504441919',
         ];
         $rules = [
-          'foo' => ['phoneNumber']
+          'foo' => ['phoneNumber'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => '1 (450) 444-1919'
+          'foo' => '1 (450) 444-1919',
         ]);
     }
 
@@ -116,14 +116,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatPhone6()
     {
         $values = [
-          'foo' => '145044419192'
+          'foo' => '145044419192',
         ];
         $rules = [
-          'foo' => ['phoneNumber']
+          'foo' => ['phoneNumber'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => '145 (044) 419-192'
+          'foo' => '145 (044) 419-192',
         ]);
     }
 
@@ -131,14 +131,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatPostal1()
     {
         $values = [
-          'foo' => 'j4y2b4'
+          'foo' => 'j4y2b4',
         ];
         $rules = [
-          'foo' => ['postalCode']
+          'foo' => ['postalCode'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => 'J4Y 2B4'
+          'foo' => 'J4Y 2B4',
         ]);
     }
 
@@ -146,14 +146,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatPostal2()
     {
         $values = [
-          'foo' => 'j4y'
+          'foo' => 'j4y',
         ];
         $rules = [
-          'foo' => ['postalCode']
+          'foo' => ['postalCode'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => 'J4Y'
+          'foo' => 'J4Y',
         ]);
     }
 
@@ -161,14 +161,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatPostal3()
     {
         $values = [
-          'foo' => 'j4y2b4424'
+          'foo' => 'j4y2b4424',
         ];
         $rules = [
-          'foo' => ['postalCode']
+          'foo' => ['postalCode'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => 'J4Y 2B4'
+          'foo' => 'J4Y 2B4',
         ]);
     }
 
@@ -176,14 +176,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatFloat1()
     {
         $values = [
-          'foo' => '122.2ABD'
+          'foo' => '122.2ABD',
         ];
         $rules = [
-          'foo' => ['float']
+          'foo' => ['float'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => '122.2'
+          'foo' => '122.2',
         ]);
     }
 
@@ -191,14 +191,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatFloat2()
     {
         $values = [
-          'foo' => 'a122.2a'
+          'foo' => 'a122.2a',
         ];
         $rules = [
-          'foo' => ['float']
+          'foo' => ['float'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => '0.0'
+          'foo' => '0.0',
         ]);
     }
 
@@ -206,14 +206,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatFloat3()
     {
         $values = [
-          'foo' => '123'
+          'foo' => '123',
         ];
         $rules = [
-          'foo' => ['float']
+          'foo' => ['float'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => '123'
+          'foo' => '123',
         ]);
     }
 
@@ -221,14 +221,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatInt1()
     {
         $values = [
-          'foo' => '123'
+          'foo' => '123',
         ];
         $rules = [
-          'foo' => ['int']
+          'foo' => ['int'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => '123'
+          'foo' => '123',
         ]);
     }
 
@@ -236,14 +236,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatInt2()
     {
         $values = [
-          'foo' => '123a'
+          'foo' => '123a',
         ];
         $rules = [
-          'foo' => ['int']
+          'foo' => ['int'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => '123'
+          'foo' => '123',
         ]);
     }
 
@@ -251,14 +251,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatInt3()
     {
         $values = [
-          'foo' => '123.12a'
+          'foo' => '123.12a',
         ];
         $rules = [
-          'foo' => ['int']
+          'foo' => ['int'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => '123'
+          'foo' => '123',
         ]);
     }
 
@@ -266,14 +266,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatInteger1()
     {
         $values = [
-          'foo' => '123.12a'
+          'foo' => '123.12a',
         ];
         $rules = [
-          'foo' => ['int']
+          'foo' => ['int'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => '123'
+          'foo' => '123',
         ]);
     }
 
@@ -281,14 +281,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatDate1()
     {
         $values = [
-          'foo' => '1231'
+          'foo' => '1231',
         ];
         $rules = [
-          'foo' => ['datetime']
+          'foo' => ['datetime'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => '1231'
+          'foo' => '1231',
         ]);
     }
 
@@ -296,14 +296,14 @@ class FormatterTest extends PHPUnit_Framework_TestCase
     public function testFormatterFormatDate2()
     {
         $values = [
-          'foo' => ''
+          'foo' => '',
         ];
         $rules = [
-          'foo' => ['datetime']
+          'foo' => ['datetime'],
         ];
         $newValues = Formatter::make($values, $rules);
         $this->assertEquals($newValues, [
-          'foo' => null
+          'foo' => null,
         ]);
     }
 }

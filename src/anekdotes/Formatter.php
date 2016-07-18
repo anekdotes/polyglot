@@ -21,10 +21,10 @@ class Formatter
     public static function make($items, $rules)
     {
         if (!is_array($items) || !is_array($rules)){
-          return false;
+            return false;
         }
         if (empty($items) || empty($rules)){
-          return false;
+            return false;
         }
 
         $mergedParams = [];
