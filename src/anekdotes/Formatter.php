@@ -10,56 +10,36 @@ use Anekdotes\Support\Str;
 class Formatter
 {
     /**
-     * Provided Input. Uses a key->value format.
-     *
-     * @var string[]
-     */
-    private $items;
-
-    /**
-     * Formatting Rules to be used. The key represents the key of the Input to format. The value associated to said key is a list of strings representing which rules to use to format the input's value.
-     *
-     * @var array[]
-     */
-    private $rules;
-
-    /**
      * Generates an instance of a Formater, using the provided items and rules.
+     * Format everything in Formater according to rules.
      *
      * @param string[] $items Provided Input, contains key->values pair to be formatted
      * @param array[]  $rules Formatting Rules to be used. The key represents the key of the Input to format. The value associated to said key is a list of strings representing which rules to use to format the input's value.
      *
-     * @return Formater Generated Formated instance
+     * @return string[] The input given on formatter creation, now formatted
      */
     public static function make($items, $rules)
     {
-        $Formater = new Formater();
-        $Formater->items = $items;
-        $Formater->rules = $rules;
+        if (!is_array($items) || !is_array($rules)){
+          return false;
+        }
+        if (empty($items) || empty($rules)){
+          return false;
+        }
 
-        return $Formater;
-    }
-
-    /**
-     * Format everything in Formater according to rules.
-     *
-     * @return string[] The input given on formatter creation, now formatted
-     */
-    public function format()
-    {
         $mergedParams = [];
-        foreach ($this->rules as $itemName => $ruleNames) {
+        foreach ($rules as $itemName => $ruleNames) {
             foreach ($ruleNames as $rule) {
                 $ruleParams = explode(':', $rule);
                 $rule = $ruleParams[0];
                 array_splice($ruleParams, 0, 1);
-                if (array_key_exists($itemName, $this->items)) {
-                    $mergedParams[] = $this->items[$itemName];
+                if (array_key_exists($itemName, $items)) {
+                    $mergedParams[] = $items[$itemName];
                     if (count($ruleParams) > 0) {
                         $ruleParams = explode(',', $ruleParams[0]);
                         $mergedParams = array_merge($mergedParams, $ruleParams);
                     }
-                    $this->items[$itemName] = call_user_func_array([$this, $rule], $mergedParams);
+                    $items[$itemName] = call_user_func_array(['Anekdotes\Formatter\Formatter', $rule], $mergedParams);
                 } else {
                     // item doesn't exist
                 }
@@ -67,7 +47,7 @@ class Formatter
             }
         }
 
-        return $this->items;
+        return $items;
     }
 
     /**
@@ -80,12 +60,15 @@ class Formatter
     public static function postalCode($value)
     {
         if (strlen($value) > 0) {
-            $value = str_replace(' ', '', $value);
-            $value = substr($value, 0, 3).' '.substr($value, 3, 3);
-            $value = Str::upper($value);
+            $new = str_replace(' ', '', $value);
+            $new = substr($value, 0, 3);
+            if(strlen($value) > 3){
+              $new .= ' '.substr($value, 3, 3);
+            }
+            $new = Str::upper($new);
         }
 
-        return $value;
+        return $new;
     }
 
     /**
