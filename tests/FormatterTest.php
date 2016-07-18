@@ -306,4 +306,19 @@ class FormatterTest extends PHPUnit_Framework_TestCase
           'foo' => null,
         ]);
     }
+
+    //Tests the datetime of format method of the formatter
+    public function testFormatterFormatRandom1()
+    {
+        $values = [
+          'foo' => '1a',
+        ];
+        $rules = [
+          'foo' => ['int:1,2'],
+        ];
+        $newValues = Formatter::make($values, $rules);
+        $this->assertEquals($newValues, [
+          'foo' => '1',
+        ]);
+    }
 }
