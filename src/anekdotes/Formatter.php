@@ -9,13 +9,13 @@ use Anekdotes\Support\Str;
  */
 class Formatter
 {
-
     /**
      * Provided Input. Uses a key->value format.
      *
      * @var string[]
      */
     private $items;
+
     /**
      * Formatting Rules to be used. The key represents the key of the Input to format. The value associated to said key is a list of strings representing which rules to use to format the input's value.
      *
@@ -27,7 +27,7 @@ class Formatter
      * Generates an instance of a Formater, using the provided items and rules.
      *
      * @param string[] $items Provided Input, contains key->values pair to be formatted
-     * @param array[] $rules Formatting Rules to be used. The key represents the key of the Input to format. The value associated to said key is a list of strings representing which rules to use to format the input's value.
+     * @param array[]  $rules Formatting Rules to be used. The key represents the key of the Input to format. The value associated to said key is a list of strings representing which rules to use to format the input's value.
      *
      * @return Formater Generated Formated instance
      */
@@ -66,9 +66,9 @@ class Formatter
                 array_splice($mergedParams, 0, count($mergedParams));
             }
         }
+
         return $this->items;
     }
-
 
     /**
      * Format the postal code value into the following format : J4R 2L6.
@@ -101,11 +101,11 @@ class Formatter
             $value = preg_replace("/[^\d]+/", '', $value);
             if (strlen($value) === 12) {
                 $value = substr($value, 0, 3).' ('.substr($value, 3, 3).') '.substr($value, 6, 3).'-'.substr($value, 9, 3);
-            } else if (strlen($value) === 11) {
+            } elseif (strlen($value) === 11) {
                 $value = substr($value, 0, 1).' ('.substr($value, 1, 3).') '.substr($value, 4, 3).'-'.substr($value, 7, 4);
-            } else if (strlen($value) === 10) {
+            } elseif (strlen($value) === 10) {
                 $value = '('.substr($value, 0, 3).') '.substr($value, 3, 3).'-'.substr($value, 6, 4);
-            } else if (strlen($value) === 7) {
+            } elseif (strlen($value) === 7) {
                 $value = substr($value, 0, 3).'-'.substr($value, 3, 4);
             }
         }
