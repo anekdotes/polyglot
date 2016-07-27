@@ -321,4 +321,79 @@ class FormatterTest extends PHPUnit_Framework_TestCase
           'foo' => '1',
         ]);
     }
+
+    //Tests the website of format method of the formatter
+    public function testFormatterFormatWebsite1()
+    {
+        $values = [
+          'foo' => 'www.potato.com',
+        ];
+        $rules = [
+          'foo' => ['website'],
+        ];
+        $newValues = Formatter::make($values, $rules);
+        $this->assertEquals($newValues, [
+          'foo' => 'http://www.potato.com',
+        ]);
+    }
+
+    //Tests the website of format method of the formatter
+    public function testFormatterFormatWebsite2()
+    {
+        $values = [
+          'foo' => 'potato.com',
+        ];
+        $rules = [
+          'foo' => ['website'],
+        ];
+        $newValues = Formatter::make($values, $rules);
+        $this->assertEquals($newValues, [
+          'foo' => 'http://potato.com',
+        ]);
+    }
+
+    //Tests the website of format method of the formatter
+    public function testFormatterFormatWebsite3()
+    {
+        $values = [
+          'foo' => '//www.potato.com',
+        ];
+        $rules = [
+          'foo' => ['website'],
+        ];
+        $newValues = Formatter::make($values, $rules);
+        $this->assertEquals($newValues, [
+          'foo' => 'http://www.potato.com',
+        ]);
+    }
+
+    //Tests the website of format method of the formatter
+    public function testFormatterFormatWebsite4()
+    {
+        $values = [
+          'foo' => 'http://www.potato.com',
+        ];
+        $rules = [
+          'foo' => ['website'],
+        ];
+        $newValues = Formatter::make($values, $rules);
+        $this->assertEquals($newValues, [
+          'foo' => 'http://www.potato.com',
+        ]);
+    }
+
+    //Tests the website of format method of the formatter
+    public function testFormatterFormatWebsite5()
+    {
+        $values = [
+          'foo' => '//potato.com',
+        ];
+        $rules = [
+          'foo' => ['website'],
+        ];
+        $newValues = Formatter::make($values, $rules);
+        $this->assertEquals($newValues, [
+          'foo' => 'http://potato.com',
+        ]);
+    }
 }

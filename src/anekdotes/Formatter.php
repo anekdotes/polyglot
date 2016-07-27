@@ -145,4 +145,24 @@ class Formatter
     {
         return $value == '' ? null : $value;
     }
+
+    /**
+     * Format the received value into a valid website.
+     *
+     * @param string $value The input string to format
+     *
+     * @return string The formatted value
+     */
+    public static function website($value)
+    {
+        if (Str::startsWith($value, 'www')) {
+            $value = 'http://'.$value;
+        } elseif (Str::startsWith($value, '//')) {
+            $value = 'http://' . substr($value, 2, strlen($value)-2);
+        } elseif (!Str::startsWith($value, 'http://')) {
+            $value = 'http://'.$value;
+        }
+
+        return $value;
+    }
 }
