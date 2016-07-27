@@ -158,7 +158,7 @@ class Formatter
         if (Str::startsWith($value, 'www')) {
             $value = 'http://'.$value;
         } elseif (Str::startsWith($value, '//')) {
-            $value = 'http://' . substr($value, 2, strlen($value)-2);
+            $value = 'http://'.substr($value, 2, strlen($value) - 2);
         } elseif (!Str::startsWith($value, 'http://')) {
             $value = 'http://'.$value;
         }
