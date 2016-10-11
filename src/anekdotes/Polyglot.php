@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\App;
  */
 class TranslatedModel extends Model
 {
-   /**
+    /**
    * An array of polyglot attributes.
    *
    * @var array
