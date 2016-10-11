@@ -1,6 +1,6 @@
 <?php
 
-namespace app;
+namespace Anekdotes\Polyglot;
 
 use Anekdotes\Support\Arr;
 use Illuminate\Database\Eloquent\Model;
