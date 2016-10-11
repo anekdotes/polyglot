@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\App;
  */
 class TranslatedModel extends Model
 {
-  /**
+   /**
    * An array of polyglot attributes.
    *
    * @var array
@@ -256,7 +256,7 @@ class TranslatedModel extends Model
       // Get class name
       $model = get_called_class();
       $model = explode('\\', $model);
-      $model[sizeof($model) - 1] = end($model).'Lang';
+      $model[count($model) - 1] = end($model).'Lang';
 
       return implode('\\', $model);
   }
