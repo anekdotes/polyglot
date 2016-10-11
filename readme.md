@@ -1,17 +1,40 @@
-# Anekdotes Formatter
+# Anekdotes Polyglot
 
-[![Latest Stable Version](https://poser.pugx.org/anekdotes/formatter/v/stable)](https://packagist.org/packages/anekdotes/formatter)
-[![Build Status](https://travis-ci.org/anekdotes/formatter.svg?branch=master)](https://travis-ci.org/anekdotes/formatter)
-[![codecov.io](https://codecov.io/gh/anekdotes/formatter/coverage.svg)](https://codecov.io/gh/anekdotes/formatter?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/anekdotes/polyglot/v/stable)](https://packagist.org/packages/anekdotes/polyglot)
+[![Build Status](https://travis-ci.org/anekdotes/polyglot.svg?branch=master)](https://travis-ci.org/anekdotes/polyglot)
+[![codecov.io](https://codecov.io/gh/anekdotes/polyglot/coverage.svg)](https://codecov.io/gh/anekdotes/polyglot?branch=master)
 [![StyleCI](https://styleci.io/repos/63600389/shield?style=flat)](https://styleci.io/repos/63600389)
-[![License](https://poser.pugx.org/anekdotes/formatter/license)](https://packagist.org/packages/anekdotes/formatter)
-[![Total Downloads](https://poser.pugx.org/anekdotes/formatter/downloads)](https://packagist.org/packages/anekdotes/formatter)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/50134febcefe4cc78daf07ca45969728)](https://www.codacy.com/app/Grasseh/formatter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=anekdotes/formatter&amp;utm_campaign=Badge_Grade)
+[![License](https://poser.pugx.org/anekdotes/polyglot/license)](https://packagist.org/packages/anekdotes/polyglot)
+[![Total Downloads](https://poser.pugx.org/anekdotes/polyglot/downloads)](https://packagist.org/packages/anekdotes/polyglot)
 
-Utility to format whole Input using provided rules
+Abstract model that eases the localization of Illuminate model.
 
 ## Installation
 
 Install via composer into your project:
 
-    composer require anekdotes/formatter
+    composer require anekdotes/polyglot
+
+## Usage
+
+Extends the model you wish to translate with the class
+
+    class Test extends TranslatedModel
+
+Add the desired translated columns to the polyglot array (locale has to be there)
+
+    protected $polyglot = ['locale', 'title', 'description', 'slug'];
+
+Don't forget to also add the translated columns to the fillable array
+
+    protected $fillable = ['rank', 'locale', 'title', 'description', 'slug'];
+
+Make a new file preferably <name>Lang.php and extends Illuminate Model
+
+    class TestLang extends Model
+
+Add the translated columns to the fillable array and set timestamps to false
+
+    protected $fillable = ['locale', 'title', 'description', 'slug'];
+
+    public $timestamps = false;

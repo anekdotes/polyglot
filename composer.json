@@ -1,11 +1,11 @@
 {
-  "name": "anekdotes/formatter",
+  "name": "anekdotes/polyglot",
+  "version": "1.0.0",
   "type": "library",
-  "description": "Utility to format whole Input using provided rules",
+  "description": "Abstract model that eases the localization of Illuminate model.",
   "keywords": [
-    "mail",
-    "mailer",
-    "adapter"
+    "model",
+    "translated"
   ],
   "license": "MIT",
   "authors": [
