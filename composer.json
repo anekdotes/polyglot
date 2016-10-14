@@ -1,6 +1,6 @@
 {
   "name": "anekdotes/polyglot",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "library",
   "description": "Abstract model that eases the localization of Illuminate model.",
   "keywords": [
