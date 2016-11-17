@@ -19,22 +19,32 @@ Install via composer into your project:
 
 Extends the model you wish to translate with the class
 
-    class Test extends TranslatedModel
+```php
+class Test extends TranslatedModel
+```
 
 Add the desired translated columns to the polyglot array (locale has to be there)
 
-    protected $polyglot = ['locale', 'title', 'description', 'slug'];
+```php
+protected $polyglot = ['locale', 'title', 'description', 'slug'];
+```
 
 Don't forget to also add the translated columns to the fillable array
 
-    protected $fillable = ['rank', 'locale', 'title', 'description', 'slug'];
+```php
+protected $fillable = ['rank', 'locale', 'title', 'description', 'slug'];
+```
 
 Make a new file preferably <name>Lang.php and extends Illuminate Model
 
-    class TestLang extends Model
+```php
+class TestLang extends Model
+```
 
 Add the translated columns to the fillable array and set timestamps to false
 
-    protected $fillable = ['locale', 'title', 'description', 'slug'];
+```php
+protected $fillable = ['locale', 'title', 'description', 'slug'];
 
-    public $timestamps = false;
+public $timestamps = false;
+```
